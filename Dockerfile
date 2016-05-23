@@ -5,7 +5,6 @@ MAINTAINER Andrew Cutler <andrew@panubo.com>
 RUN apk update && \
     apk add bash git openssh rsync && \
     mkdir -p ~root/.ssh && chmod 700 ~root/.ssh/ && \
-    alias l = "ls" && \
     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config && \
     sed -i 's/#StrictModes yes/StrictModes no/g' /etc/ssh/sshd_config && \
     sed -i 's/#RSAAuthentication yes/RSAAuthentication no/g' /etc/ssh/sshd_config && \
