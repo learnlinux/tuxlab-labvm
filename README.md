@@ -7,5 +7,5 @@ Minimal Alpine Linux Docker container with `sshd` exposed and `rsync` installed.
 ```
 docker build -t tuxlab_sshd .
 
-docker run [-name NAME] -d -p 22 tuxlab_sshd
+docker run [--name NAME] -d -p 22 tuxlab_sshd
 ````
