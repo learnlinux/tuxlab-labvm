@@ -14,9 +14,6 @@ RUN apk update && \
     sed -i 's/#IgnoreUserKnownHosts no/IgnoreUserKnownHosts yes/g' /etc/ssh/sshd_config && \
     sed -i 's/#PermitEmptyPasswords no/PermitEmptyPasswords yes/g' /etc/ssh/sshd_config && \
     echo -e 'AuthenticationMethods "password"\n' >> /etc/ssh/sshd_config && \
-    date | sha256sum | base64 | head -c 12 > /pass && \
-    pass=$(cat /pass) && \
-    echo "root:"$pass | chpasswd && \
     cp -a /etc/ssh /etc/ssh.cache && \
     rm -rf /var/cache/apk/*
 
@@ -26,4 +23,4 @@ COPY entry.sh /entry.sh
 
 ENTRYPOINT ["/entry.sh"]
 
-CMD ["/usr/sbin/sshd", "-D", "-f", "/etc/ssh/sshd_config"]
+CMD date | sha256sum | base64 | head -c 12 > /pass ; pass=$(cat /pass) ; echo "root:"$pass | chpasswd ; /usr/sbin/sshd -D -f /etc/ssh/sshd_config
