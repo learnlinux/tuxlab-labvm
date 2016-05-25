@@ -15,7 +15,7 @@ RUN apk update && \
     sed -i 's/#PermitEmptyPasswords no/PermitEmptyPasswords yes/g' /etc/ssh/sshd_config && \
     echo -e 'AuthenticationMethods "password"\n' >> /etc/ssh/sshd_config && \
     pwd=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1) && \
-    echo "root password: "$pwd >> /passwd && \
+    echo $pwd >> /passwd && \
     echo "root:"$pwd | chpasswd && \
     cp -a /etc/ssh /etc/ssh.cache && \
     rm -rf /var/cache/apk/*
