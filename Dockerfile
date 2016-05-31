@@ -13,7 +13,7 @@ RUN apk update && \
     sed -i 's/#HostbasedAuthentication no/HostbasedAuthentication yes/g' /etc/ssh/sshd_config && \
     sed -i 's/#IgnoreUserKnownHosts no/IgnoreUserKnownHosts yes/g' /etc/ssh/sshd_config && \
     sed -i 's/#PermitEmptyPasswords no/PermitEmptyPasswords yes/g' /etc/ssh/sshd_config && \
-    sed -i 's/#Banner none/Banner ///etc///ssh///sshd_banner/g' /etc/ssh/sshd_config && \
+    echo -e 'Banner /etc/ssh/sshd_banner' >> /etc/ssh/sshd_config && \
     echo -e '     .___.                                  .___.   ' >> /etc/ssh/sshd_banner && \
     echo -e '    /     \                                /     \  ' >> /etc/ssh/sshd_banner && \
     echo -e '   | O _ O |     ____________________     | O _ O | ' >> /etc/ssh/sshd_banner && \
