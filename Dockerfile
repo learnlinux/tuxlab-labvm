@@ -20,7 +20,7 @@ RUN apk update && \
     echo -e '   /  \_/  \    / Welcome to TuxLab! \    /  \_/  \ ' >> /etc/ssh/sshd_banner && \
     echo -e '  | / >-< \ |   \                    /   | / >-< \ |' >> /etc/ssh/sshd_banner && \
     echo -e '  \ \     / /   /                    \   \ \     / /' >> /etc/ssh/sshd_banner && \
-    echo -e '  \\/     \//   \                    /   \\/     \//' >> /etc/ssh/sshd_banner && \
+    echo -e '  \\\\/     \//   \                    /   \\\\/     \//' >> /etc/ssh/sshd_banner && \
     echo -e '   \ \___/ /    /                    \    \ \___/ / ' >> /etc/ssh/sshd_banner && \
     echo -e '   _\_>-<_/_    \____________________/    _\_>-<_/_ ' >> /etc/ssh/sshd_banner && \
     echo -e 'AuthenticationMethods "password"\n' >> /etc/ssh/sshd_config && \
