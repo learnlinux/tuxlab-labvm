@@ -26,4 +26,4 @@ COPY files/motd /etc/motd
 
 ENTRYPOINT ["/entry.sh"]
 
-CMD echo -e 'date | sha256sum | base64 | head -c 12 > /pass ; pass=$(cat /pass) ; echo "root:"$pass | chpasswd ; /usr/sbin/sshd -D -f /etc/ssh/sshd_config'
+CMD date | sha256sum | base64 | head -c 12 > /pass ; pass=$(cat /pass) ; echo "root:"$pass | chpasswd ; /usr/sbin/sshd -D -f /etc/ssh/sshd_config
