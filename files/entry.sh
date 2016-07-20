@@ -6,9 +6,6 @@ set -e
 
 DAEMON=sshd
 
-# Save Password file
-date | sha256sum | base64 | head -c 12 > /pass ; pass=$(cat /pass) ; echo "root:"$pass | chpasswd ; /usr/sbin/sshd -D -f /etc/ssh/sshd_config
-
 # Copy default config from cache
 if [ ! "$(ls -A /etc/ssh)" ]; then
    cp -a /etc/ssh.cache/* /etc/ssh/
@@ -55,3 +52,7 @@ if [ "$(basename $1)" == "$DAEMON" ]; then
 else
     exec "$@"
 fi
+
+
+# Save Password file
+date | sha256sum | base64 | head -c 12 > /pass ; pass=$(cat /pass) ; echo "root:"$pass | chpasswd ; /usr/sbin/sshd -D -f /etc/ssh/sshd_config
