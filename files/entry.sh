@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+date | sha256sum | base64 | head -c 12 > /pass 
+
+pass=$(cat /pass) 
+
+echo "root:"$pass | chpasswd
+
 set -e
 
 [ "$DEBUG" == 'true' ] && set -x
@@ -53,6 +59,4 @@ else
     exec "$@"
 fi
 
-
-# Save Password file
-date | sha256sum | base64 | head -c 12 > /pass ; pass=$(cat /pass) ; echo "root:"$pass | chpasswd ; /usr/sbin/sshd -D -f /etc/ssh/sshd_config
+/usr/sbin/sshd -D -f /etc/ssh/sshd_config
