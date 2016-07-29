@@ -7,8 +7,8 @@ COPY files/sshd_banner /etc/ssh/sshd_banner
 COPY files/motd /etc/motd
 COPY files/install.sh /root/install.sh
 
-RUN ./install.sh && \
-    rm install.sh
+RUN ./root/install.sh && \
+    rm /root/install.sh
 
 EXPOSE 22
 
