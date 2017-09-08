@@ -1,5 +1,5 @@
 apk update
-apk add bash git openssh rsync
+apk add bash git openssh shadow rsync
 chsh -s /bin/bash root
 mkdir -p ~root/.ssh && chmod 700 ~root/.ssh/
 sed -i 's/#Port 22/Port 22/g' /etc/ssh/sshd_config
