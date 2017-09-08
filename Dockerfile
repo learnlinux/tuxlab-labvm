@@ -1,6 +1,5 @@
 FROM alpine:latest
-
-MAINTAINER Andrew Cutler <andrew@panubo.com>
+MAINTAINER Derek Brown <derek@allderek.com>
 
 COPY files/entry.sh entry.sh
 COPY files/sshd_banner /etc/ssh/sshd_banner
